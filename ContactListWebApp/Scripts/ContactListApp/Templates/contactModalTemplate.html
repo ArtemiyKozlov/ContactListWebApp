@@ -1,0 +1,57 @@
+﻿<div>
+    <div class="modal-header">
+        <div>
+            
+        </div>
+        <h3 class="modal-title">{{ contact.firstName + " " + contact.lastName}}</h3>
+        
+    </div>
+
+    <div class="modal-body">
+            <form role="form" name="form">
+                <div class="form-group">
+                    <img ng-src="{{ contact.avatar }}" class="img-circle" alt="avatar" />
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" class="form-control" name="firstName" id="firstName" ng-model="contact.firstName" ng-required="true">
+                    <span class="text-danger" ng-show="form.firstName.$error.required">Enter First Name</span>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text"  class="form-control" name="lastName" id="lastName" ng-model="contact.lastName" required>
+                    <span class="text-danger" ng-show="form.lastName.$error.required">Enter Last Name</span>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" class="form-control" id="phone" ng-model="contact.phone">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" name="email" id="email" ng-model="contact.email" required>
+                    <span class="text-danger" ng-show="form.email.$error.required">Enter email</span>
+                    <span class="text-danger" ng-show="form.email.$error.email">This is not a valid email</span>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select type="text" class="form-control" id="gender" ng-model="contact.gender" ng-options="gender for gender in genders" >
+                        <option value="">Please select gender</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="companyName">Company:</label>
+                    <input type="text" class="form-control" id="companyName" ng-model="contact.company.companyName">
+                </div>
+                <div class="form-group">
+                    <label for="jobTitle">Position:</label>
+                    <input type="text" class="form-control" id="jobTitle" ng-model="contact.job.jobTitle">
+                </div>
+            </form>
+    </div>
+    
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="updateContact(contact)">Update</button>
+        <button class="btn btn-danger" type="button" ng-click="deleteContact(contact)">Delete</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</div>

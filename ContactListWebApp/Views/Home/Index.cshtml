@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div ng-controller="ContactListController as mainCtr">
+    <div class="container ng-cloak" >
+        <div class="jumbotron">
+            <h1>Contact List</h1>
+        </div>
+
+        <ul class="list-group " ng-show="mainCtr.gridIsReady">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-1">
+                        <label >First Name:</label>
+                        <input type="text" ng-model="mainCtr.filter.firstName"
+                               ng-change="mainCtr.updateContactFilter()" ng-model-options='{ debounce: 2000 }'>
+                    </div>
+                    <div class="col-md-2">
+                        <label>Last Name:</label>
+                        <input type="text" ng-model="mainCtr.filter.lastName"
+                               ng-change="mainCtr.updateContactFilter()" ng-model-options='{ debounce: 2000 }'>
+                    </div>
+                    <div class="col-md-offset-6 col-md-1 button-header">
+                        <button type="button" class="btn btn-default" ng-click="mainCtr.addContact()">Add</button>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item grid" ng-repeat="contact in mainCtr.contactList" >
+                <div class="row grid-text">
+                    <div class="col-md-1">
+                        <img ng-src="{{ contact.avatar }}" class="img-circle" alt="avatar" style="background-color: white;"/>
+                    </div>
+                    <div class="col-md-2 ">
+                        {{contact.firstName}}
+                    </div>
+                    <div class="col-md-2 ">
+                        {{ contact.lastName }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ contact.email }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ contact.phone }}
+                    </div>
+
+                    <div class="col-md-1" ng-click="mainCtr.viewContact(contact)">
+                        <button type="button" class="btn btn-default">View</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <uib-pagination ng-show="mainCtr.gridIsReady" class="pagination-sm" max-size="10" boundary-link-numbers="true"
+                        total-items="mainCtr.numberOfFilteredContacts" items-per-page="mainCtr.filter.pageSize" 
+                        ng-model="mainCtr.filter.pageNumber" ng-change="mainCtr.pageChanged()">
+
+        </uib-pagination>
+    </div>
+
+</div>

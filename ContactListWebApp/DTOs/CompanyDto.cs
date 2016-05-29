@@ -1,0 +1,9 @@
+﻿
+namespace ContactListWebApp.DTOs
+{
+    public class CompanyDto
+    {
+        public int Id { get; set; }
+        public string CompanyName { get; set; }
+    }
+}

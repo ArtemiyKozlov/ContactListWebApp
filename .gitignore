@@ -1,0 +1,10 @@
+v14
+ContactListWebApp.sln.DotSettings.user
+*.mdf
+*.ldf
+*.dll
+*.pdb
+MOCK_DATA.json
+bin
+/ContactListWebApp/Project_Readme.html
+packages

@@ -1,0 +1,20 @@
+﻿.grid-text {
+    line-height: 50px;
+    text-align: left;
+}
+.button-header {
+    line-height: 51px;
+}
+.grid {
+    background-color: #eee;
+}
+input.ng-invalid {
+    outline: none;
+    border-color: #843534;
+    box-shadow: 0 0 3px 1px rgba(255, 0, 0, 0.6);
+}
+input.ng-valid {
+    background-color:white;
+}
+
+
